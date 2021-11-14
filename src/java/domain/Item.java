@@ -23,6 +23,8 @@ public class Item implements Serializable {
     private double quantity;
     private String type;
     private String description;
+    private String category;
+    
     
     @ManyToOne
     private Company company;
@@ -114,6 +116,14 @@ public class Item implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
        
 }
