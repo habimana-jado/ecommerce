@@ -394,9 +394,9 @@
                                                     <td>#{elements.phone}</td>
                                                     <td>#{elements.regDate}</td>
                                                     <td>
-                                                        <h:commandButton class="btn btn-sm btn-primary" value="Employees" action="#{adminController.updateItem(elements)}" />
-                                                        <h:commandButton class="btn btn-sm btn-warning" value="Products" action="#{adminController.updateItem(elements)}" />
-                                                        <h:commandButton class="btn btn-sm btn-success" value="Orders" action="#{adminController.updateItem(elements)}" />
+                                                        <h:commandButton class="btn btn-sm btn-primary" value="Employees" />
+                                                        <h:commandButton class="btn btn-sm btn-warning" value="Products" action="#{adminController.navigateCompanyProducts(elements)}" />
+                                                        <h:commandButton class="btn btn-sm btn-success" value="Orders" />
                                                     </td>
                                                 </tr>
                                             </c:forEach>

@@ -48,6 +48,10 @@ public class AdminController {
     private CompanyAdmin companyAdmin = new CompanyAdmin();
     
     private List<Company> allCompanies = new CompanyDao().FindAll(Company.class);
+    
+    private Company chosenCompany = new Company();
+    
+    private List<ItemImage> companyItemImages = new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -64,8 +68,7 @@ public class AdminController {
             FacesContext ct = FacesContext.getCurrentInstance();
             ct.addMessage(null, new FacesMessage("Upload Product Images"));
         } else {
-//            userInit();
-//            item.setCompany(loggedInUser.getCompany());
+            item.setCompany(chosenCompany);
             new ItemDao().register(item);
             for (String x : choosenImage) {
                 ItemImage itemImage = new ItemImage();
@@ -75,6 +78,7 @@ public class AdminController {
             }
             choosenImage.clear();
             itemImages = new ItemImageDao().FindAll(ItemImage.class);
+            companyItemImages = new ItemImageDao().findByCompany(chosenCompany);
             items = new ItemDao().FindAll(Item.class);
 
             item = new Item();
@@ -121,6 +125,12 @@ public class AdminController {
         } catch (Exception ex) {
             Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String navigateCompanyProducts(Company x){
+        chosenCompany = x;
+        companyItemImages = new ItemImageDao().findByCompany(x);
+        return "companyproducts.xhtml?faces-redirect=true";
     }
 
     public Item getItem() {
@@ -209,6 +219,14 @@ public class AdminController {
 
     public void setAllCompanies(List<Company> allCompanies) {
         this.allCompanies = allCompanies;
+    }
+
+    public List<ItemImage> getCompanyItemImages() {
+        return companyItemImages;
+    }
+
+    public void setCompanyItemImages(List<ItemImage> companyItemImages) {
+        this.companyItemImages = companyItemImages;
     }
 
 }
