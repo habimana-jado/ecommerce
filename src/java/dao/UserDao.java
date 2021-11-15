@@ -2,31 +2,31 @@
 package dao;
 
 import Common.PassCode;
-import domain.User;
+import domain.UserX;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class UserDao extends GenericDao<User>{
+public class UserDao extends GenericDao<UserX>{
     
-    public List<User> login(String u,String password){
+    public List<UserX> login(String u,String password){
         Session s=HibernateUtil.getSessionFactory().openSession();
         Query q=s.createQuery("select a from User a where a.username=:v and a.password=:p");
         q.setParameter("v", u);
         q.setParameter("p", password);
-        List<User> l=q.list();
+        List<UserX> l=q.list();
         return l;
     } 
     
-    public List<User> loginencrypt(String u, String pass) throws Exception {
+    public List<UserX> loginencrypt(String u, String pass) throws Exception {
 
         Session s = HibernateUtil.getSessionFactory().openSession();
-        List<User> list = new ArrayList<>();
+        List<UserX> list = new ArrayList<>();
 
-        List<User> users = new UserDao().FindAll(User.class);
+        List<UserX> users = new UserDao().FindAll(UserX.class);
         String z = "";
-        for (User us : users) {
+        for (UserX us : users) {
             if (us.getUsername().matches(u)) {
                 if ((new PassCode().decrypt(us.getPassword())).matches(pass)) {
                     list.add(us);

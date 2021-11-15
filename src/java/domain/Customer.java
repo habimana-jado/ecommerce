@@ -31,7 +31,7 @@ public class Customer implements Serializable {
     private List<CustomerOrder> customerOrder;
     
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
-    private User user;
+    private UserX user;
 
     public String getId() {
         return id;
@@ -81,11 +81,11 @@ public class Customer implements Serializable {
         this.cart = cart;
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 

@@ -35,7 +35,7 @@ public class Company implements Serializable{
     private List<Item> item;
     
     @OneToOne(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private User user;
+    private UserX user;
 
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Deliverer> deliverer;
@@ -96,11 +96,11 @@ public class Company implements Serializable{
         this.item = item;
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 

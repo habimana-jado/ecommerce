@@ -23,7 +23,7 @@ import domain.CustomerOrder;
 import domain.Deliverer;
 import domain.Item;
 import domain.ItemImage;
-import domain.User;
+import domain.UserX;
 import java.awt.Color;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -60,11 +60,11 @@ public class CompanyAdminController {
 
     private List<Deliverer> deliverers = new ArrayList<>();
 
-    private User user = new User();
+    private UserX user = new UserX();
 
     private String password = new String();
 
-    private User loggedInUser = new User();
+    private UserX loggedInUser = new UserX();
 
     private ItemImage chosenItemImage = new ItemImage();
 
@@ -137,7 +137,7 @@ public class CompanyAdminController {
     }
     
     public void userInit() {
-        loggedInUser = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
+        loggedInUser = (UserX) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
 
     }
 
@@ -187,7 +187,7 @@ public class CompanyAdminController {
         user.setPassword((password));
         new UserDao().register(user);
 
-        user = new User();
+        user = new UserX();
         deliverer = new Deliverer();
         companyProductImageInit();
         FacesContext ct = FacesContext.getCurrentInstance();
@@ -475,11 +475,11 @@ public class CompanyAdminController {
         this.deliverers = deliverers;
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 
@@ -491,11 +491,11 @@ public class CompanyAdminController {
         this.password = password;
     }
 
-    public User getLoggedInUser() {
+    public UserX getLoggedInUser() {
         return loggedInUser;
     }
 
-    public void setLoggedInUser(User loggedInUser) {
+    public void setLoggedInUser(UserX loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
 

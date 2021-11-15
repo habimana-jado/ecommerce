@@ -1,7 +1,7 @@
 package Controller;
 
 import dao.UserDao;
-import domain.User;
+import domain.UserX;
 import java.io.IOException;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -14,13 +14,13 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class UserController {
 
-    private User user = new User();
+    private UserX user = new UserX();
 
-    private User userDetails = new User();
+    private UserX userDetails = new UserX();
 
     private UserDao userDao = new UserDao();
 
-    private List<User> users;
+    private List<UserX> users;
 
     private String username = new String();
 
@@ -32,7 +32,7 @@ public class UserController {
 
     private String sectid = new String();
 
-    private User u = new User();
+    private UserX u = new UserX();
 
     public String login2() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -80,10 +80,10 @@ public class UserController {
     }
 
     public void findUser() throws Exception {
-        List<User> usersLogin = new UserDao().login(username, password);
+        List<UserX> usersLogin = new UserDao().login(username, password);
 
         if (!usersLogin.isEmpty()) {
-            for (User u : usersLogin) {
+            for (UserX u : usersLogin) {
                 user = u;
             }
         } else {
@@ -98,19 +98,19 @@ public class UserController {
         ec.redirect(ec.getRequestContextPath() + "/faces/index.xhtml");
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 
-    public User getUserDetails() {
+    public UserX getUserDetails() {
         return userDetails;
     }
 
-    public void setUserDetails(User userDetails) {
+    public void setUserDetails(UserX userDetails) {
         this.userDetails = userDetails;
     }
 
@@ -122,11 +122,11 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    public List<User> getUsers() {
+    public List<UserX> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<UserX> users) {
         this.users = users;
     }
 
@@ -170,11 +170,11 @@ public class UserController {
         this.sectid = sectid;
     }
 
-    public User getU() {
+    public UserX getU() {
         return u;
     }
 
-    public void setU(User u) {
+    public void setU(UserX u) {
         this.u = u;
     }
 

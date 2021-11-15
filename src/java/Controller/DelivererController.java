@@ -22,7 +22,7 @@ import domain.CustomerOrder;
 import domain.Deliverer;
 import domain.Item;
 import domain.ItemImage;
-import domain.User;
+import domain.UserX;
 import java.awt.Color;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -53,7 +53,7 @@ public class DelivererController {
     
     private Item item = new Item();
     
-    private User loggedInUser = new User();
+    private UserX loggedInUser = new UserX();
     
     private List<CustomerOrder> pendingOrders = new ArrayList<>();
     
@@ -92,7 +92,7 @@ public class DelivererController {
 
     
     public void userInit() {
-        loggedInUser = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session");
+        loggedInUser = (UserX) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session");
         loggedInDeliverer = loggedInUser.getDeliverer();
     }
     
@@ -270,11 +270,11 @@ public class DelivererController {
         this.item = item;
     }
 
-    public User getLoggedInUser() {
+    public UserX getLoggedInUser() {
         return loggedInUser;
     }
 
-    public void setLoggedInUser(User loggedInUser) {
+    public void setLoggedInUser(UserX loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
 

@@ -6,7 +6,7 @@ import dao.CustomerDao;
 import dao.UserDao;
 import domain.Company;
 import domain.Customer;
-import domain.User;
+import domain.UserX;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,7 +29,7 @@ public class RegistrationController {
 
     private String compPassword = new String();
 
-    private User user = new User();
+    private UserX user = new UserX();
 
     private List<String> choosenImage = new ArrayList<>();
 
@@ -60,7 +60,7 @@ public class RegistrationController {
                 user.setPassword((compPassword));
                 new UserDao().register(user);
 
-                user = new User();
+                user = new UserX();
                 company = new Company();
 
                 FacesContext ct = FacesContext.getCurrentInstance();
@@ -80,7 +80,7 @@ public class RegistrationController {
             user.setPassword((custPassword));
             new UserDao().register(user);
 
-            user = new User();
+            user = new UserX();
             customer = new Customer();
 
             FacesContext ct = FacesContext.getCurrentInstance();
@@ -103,11 +103,11 @@ public class RegistrationController {
         this.company = company;
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 

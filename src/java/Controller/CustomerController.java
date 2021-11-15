@@ -11,7 +11,7 @@ import domain.Customer;
 import domain.CustomerOrder;
 import domain.Item;
 import domain.ItemImage;
-import domain.User;
+import domain.UserX;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class CustomerController {
 
-    private User loggedInUser = new User();
+    private UserX loggedInUser = new UserX();
 
     private int orderQuantity = 0;
 
@@ -106,7 +106,7 @@ public class CustomerController {
     }
 
     public void userInit() {
-        loggedInUser = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
+        loggedInUser = (UserX) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
         loggedInCustomer = loggedInUser.getCustomer();
     }
 
@@ -195,11 +195,11 @@ public class CustomerController {
         fc.addMessage(null, new FacesMessage("Customer Order Completed"));
     }
 
-    public User getLoggedInUser() {
+    public UserX getLoggedInUser() {
         return loggedInUser;
     }
 
-    public void setLoggedInUser(User loggedInUser) {
+    public void setLoggedInUser(UserX loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
 

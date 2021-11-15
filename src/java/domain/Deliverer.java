@@ -25,7 +25,7 @@ public class Deliverer implements Serializable{
     private String location;
     
     @OneToOne(mappedBy = "deliverer", cascade = CascadeType.ALL)
-    private User user;
+    private UserX user;
     
     @OneToMany(mappedBy = "deliverer", fetch = FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval=true)
     @Fetch(FetchMode.SUBSELECT)
@@ -66,11 +66,11 @@ public class Deliverer implements Serializable{
         this.phone = phone;
     }
 
-    public User getUser() {
+    public UserX getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserX user) {
         this.user = user;
     }
 
