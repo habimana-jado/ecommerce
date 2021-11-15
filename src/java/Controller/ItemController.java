@@ -17,6 +17,7 @@ public class ItemController {
     private List<ItemImage> agriculturals = new ItemImageDao().findByItemType("Agricultural");
     private List<ItemImage> electronics = new ItemImageDao().findByItemType("Electronics");
     private List<ItemImage> clothes = new ItemImageDao().findByItemType("Clothes");
+    private List<ItemImage> hotels = new ItemImageDao().findByItemType("Hotel");
 
     public List<ItemImage> getAllItems() {
         return allItems;
@@ -64,6 +65,14 @@ public class ItemController {
 
     public void setClothes(List<ItemImage> clothes) {
         this.clothes = clothes;
+    }
+
+    public List<ItemImage> getHotels() {
+        return hotels;
+    }
+
+    public void setHotels(List<ItemImage> hotels) {
+        this.hotels = hotels;
     }
     
     
