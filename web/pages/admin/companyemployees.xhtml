@@ -246,176 +246,122 @@
                                     <div class="modal-close-area modal-close-df">
                                         <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                                     </div>
-                                    <div class="modal-header">Add Company</div>
+                                    <div class="modal-header">Add Company Employee</div>
                                     <div class="modal-body">
-                                        <center><h4 class="text text-warning">Company Details</h4></center>
-                                        <div class="row">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Name: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <h:inputText class="form-control" value="#{adminController.company.name}"  required="true" requiredMessage="Name is required"/>
-                                                    </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Name: </label>  
+                                                </div>
+                                                <div class="col-sm-9"> 
+                                                    <h:inputText class="form-control" value="#{adminController.companyAdmin.names}" required="true" requiredMessage="Description is required"/>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">TIN: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <p:inputMask mask="999999999" class="form-control" value="#{adminController.company.tinNumber}"/>
-                                                    </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Email: </label>  
+                                                </div>
+                                                <div class="col-sm-9"> 
+                                                    <h:inputText class="form-control" value="#{adminController.companyAdmin.email}" />
                                                 </div>
                                             </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Email: </label> 
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <h:inputText class="form-control" value="#{adminController.company.email}"> </h:inputText>
-                                                    </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Phone: </label>  
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p:inputMask mask="9999 999 999" class="form-control" value="#{adminController.companyAdmin.phone}" required="true" requiredMessage="Phone No is required"  />
                                                 </div>
                                             </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Phone: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <p:inputMask mask="9999 999 999" class="form-control" value="#{adminController.company.phone}" required="true" requiredMessage="Phone No is required"  />
-                                                    </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Username: </label>  
+                                                </div>
+                                                <div class="col-sm-9"> 
+                                                    <h:inputText class="form-control" value="#{adminController.user.username}" required="true" requiredMessage="Username is required"/>
                                                 </div>
                                             </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Location: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9"> 
-                                                        <h:inputText id="address" class="form-control" value="#{adminController.company.location}" required="true" requiredMessage="Location is required"  />
-                                                    </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Password: </label>  
+                                                </div>
+                                                <div class="col-sm-9"> 
+                                                    <h:inputText class="form-control" value="#{adminController.password}" required="true" requiredMessage="Password is required"/>
                                                 </div>
                                             </div>
-                                            <hr></hr>
-                                        <center><h4 class="text text-warning">Company Admin Details</h4></center>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Name: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9"> 
-                                                        <h:inputText class="form-control" value="#{adminController.companyAdmin.names}" required="true" requiredMessage="Description is required"/>
-                                                    </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label class="col-form-label">Access: </label>  
                                                 </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Email: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9"> 
-                                                        <h:inputText class="form-control" value="#{adminController.companyAdmin.email}" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Phone: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <p:inputMask mask="9999 999 999" class="form-control" value="#{adminController.companyAdmin.phone}" required="true" requiredMessage="Phone No is required"  />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Username: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9"> 
-                                                        <h:inputText class="form-control" value="#{adminController.user.username}" required="true" requiredMessage="Username is required"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 5px;">
-                                                <div class="form-group">
-                                                    <div class="col-sm-3">
-                                                        <label class="col-form-label">Password: </label>  
-                                                    </div>
-                                                    <div class="col-sm-9"> 
-                                                        <h:inputText class="form-control" value="#{adminController.password}" required="true" requiredMessage="Password is required"/>
-                                                    </div>
+                                                <div class="col-sm-9"> 
+                                                    <h:selectOneMenu class="form-control" value="#{adminController.user.access}">
+                                                        <f:selectItem itemValue="CompanyAdmin" itemLabel="Admin" />
+                                                        <f:selectItem itemValue="SalesManager" itemLabel="SalesManager" />
+                                                    </h:selectOneMenu>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <h:commandButton class="btn btn-primary" value="Register" action="#{adminController.registerCompany()}" />
-                                    </div>
                                 </div>
-                            </h:form>                            
-                        </div>
+                                <div class="modal-footer">
+                                    <h:commandButton class="btn btn-primary" value="Register" action="#{adminController.registerCompanyAdmin()}" />
+                                </div>
+                            </h:form>
+                        </div>                           
                     </div>
-                    
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="product-status-wrap">
-                                <h4>Company List</h4>
-                                <div class="add-product">
-                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Company</a>
-                                </div>
-                                <div class="asset-inner">
-                                    <table>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Company Name</th>
-                                            <th>Location</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Registration</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        <h:form>
-                                            <c:forEach items="#{adminController.allCompanies}" var="elements" varStatus="status">
-                                                <tr>
-                                                    <td>${status.index+1}</td>
-                                                    <td>
-                                                        #{elements.name}
-                                                    </td>
-                                                    <td>#{elements.location}</td>
-                                                    <td>
-                                                        #{elements.email}
-                                                    </td>
-                                                    <td>#{elements.phone}</td>
-                                                    <td>#{elements.regDate}</td>
-                                                    <td>
-                                                        <h:commandButton class="btn btn-sm btn-primary" value="Employees" action="#{adminController.navigateCompanyEmployees(elements)}" />
-                                                        <h:commandButton class="btn btn-sm btn-warning" value="Products" action="#{adminController.navigateCompanyProducts(elements)}" />
-                                                        <h:commandButton class="btn btn-sm btn-success" value="Orders" />
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </h:form>
-                                    </table>
-                                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Company Employees List</h4>
+                            <div class="add-product">
+                                <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Employee</a>
+                            </div>
+                            <div class="asset-inner">
+                                <table>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Admin Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                    </tr>
+                                    <h:form>
+                                        <c:forEach items="#{adminController.companyAdmins}" var="elements" varStatus="status">
+                                            <tr>
+                                                <td>${status.index+1}</td>
+                                                <td>
+                                                    #{elements.names}
+                                                </td>
+                                                <td>#{elements.phone}</td>
+                                                <td>#{elements.email}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </h:form>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="padding-bottom: 15px" />
-            <div class="footer-copyright-area" style="position: fixed; padding: 10px 10px 0px 10px; bottom: 0; width: 100%; height: 40px;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer-copy-right">
-                                <p>Copyright © 2020 Powered by AFRITECK</p>
-                            </div>
+        </div>
+        <div style="padding-bottom: 15px" />
+        <div class="footer-copyright-area" style="position: fixed; padding: 10px 10px 0px 10px; bottom: 0; width: 100%; height: 40px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2020 Powered by AFRITECK</p>
                         </div>
                     </div>
                 </div>

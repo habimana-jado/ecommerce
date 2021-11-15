@@ -46,12 +46,14 @@ public class AdminController {
     private Company company = new Company();
 
     private CompanyAdmin companyAdmin = new CompanyAdmin();
-    
+
     private List<Company> allCompanies = new CompanyDao().FindAll(Company.class);
-    
+
     private Company chosenCompany = new Company();
-    
+
     private List<ItemImage> companyItemImages = new ArrayList<>();
+
+    private List<CompanyAdmin> companyAdmins = new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -101,10 +103,6 @@ public class AdminController {
 
     public void registerCompany() {
         try {
-            for (String x : choosenImage) {
-                company.setImage(x);
-            }
-            choosenImage.clear();
             new CompanyDao().register(company);
             companyAdmin.setCompany(company);
             new CompanyAdminDao().register(companyAdmin);
@@ -118,7 +116,7 @@ public class AdminController {
             company = new Company();
 
             allCompanies = new CompanyDao().FindAll(Company.class);
-            
+
             FacesContext ct = FacesContext.getCurrentInstance();
             ct.addMessage(null, new FacesMessage("Company Registered"));
 
@@ -126,11 +124,39 @@ public class AdminController {
             Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public String navigateCompanyProducts(Company x){
+
+    public void registerCompanyAdmin() {
+        try {
+            companyAdmin.setCompany(chosenCompany);
+            new CompanyAdminDao().register(companyAdmin);
+            user.setStatus("Active");
+            user.setCompanyAdmin(companyAdmin);
+            user.setPassword(new PassCode().encrypt(password));
+            new UserDao().register(user);
+
+            user = new UserX();
+            company = new Company();
+
+            companyAdmins = new CompanyAdminDao().findByCompany(chosenCompany);
+
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Company Admin Registered"));
+
+        } catch (Exception ex) {
+            Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public String navigateCompanyProducts(Company x) {
         chosenCompany = x;
         companyItemImages = new ItemImageDao().findByCompany(x);
         return "companyproducts.xhtml?faces-redirect=true";
+    }
+
+    public String navigateCompanyEmployees(Company x) {
+        chosenCompany = x;
+        companyAdmins = new CompanyAdminDao().findByCompany(chosenCompany);
+        return "companyemployees.xhtml?faces-redirect=true";
     }
 
     public Item getItem() {
@@ -227,6 +253,14 @@ public class AdminController {
 
     public void setCompanyItemImages(List<ItemImage> companyItemImages) {
         this.companyItemImages = companyItemImages;
+    }
+
+    public List<CompanyAdmin> getCompanyAdmins() {
+        return companyAdmins;
+    }
+
+    public void setCompanyAdmins(List<CompanyAdmin> companyAdmins) {
+        this.companyAdmins = companyAdmins;
     }
 
 }
