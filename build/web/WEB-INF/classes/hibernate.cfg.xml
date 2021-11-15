@@ -42,7 +42,7 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/abc_db</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/abc_db1</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -51,12 +51,13 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="domain.Cart"/>
     <mapping class="domain.Company"/>
+    <mapping class="domain.CompanyAdmin"/>
     <mapping class="domain.Customer"/>
     <mapping class="domain.CustomerOrder"/>
     <mapping class="domain.Deliverer"/>
     <mapping class="domain.Item"/>
     <mapping class="domain.ItemImage"/>
     <mapping class="domain.Payment"/>
-    <mapping class="domain.User"/>
+    <mapping class="domain.UserX"/>
   </session-factory>
 </hibernate-configuration>

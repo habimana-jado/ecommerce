@@ -1,11 +1,16 @@
-
 package Controller;
 
 import Common.FileUpload;
+import Common.PassCode;
+import dao.CompanyAdminDao;
+import dao.CompanyDao;
 import dao.CustomerOrderDao;
 import dao.DelivererDao;
 import dao.ItemDao;
 import dao.ItemImageDao;
+import dao.UserDao;
+import domain.Company;
+import domain.CompanyAdmin;
 import domain.CustomerOrder;
 import domain.Deliverer;
 import domain.Item;
@@ -13,6 +18,8 @@ import domain.ItemImage;
 import domain.UserX;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -23,7 +30,7 @@ import org.primefaces.event.FileUploadEvent;
 @ManagedBean
 @SessionScoped
 public class AdminController {
-    
+
     private Item item = new Item();
 
     private List<String> choosenImage = new ArrayList<>();
@@ -31,12 +38,6 @@ public class AdminController {
     private List<Item> items = new ArrayList<>();
 
     private List<ItemImage> itemImages = new ArrayList<>();
-
-    private String phone = new String();
-
-    private Deliverer deliverer = new Deliverer();
-
-    private List<Deliverer> deliverers = new ArrayList<>();
 
     private UserX user = new UserX();
 
@@ -46,27 +47,16 @@ public class AdminController {
 
     private ItemImage chosenItemImage = new ItemImage();
 
-    private List<CustomerOrder> customerOrders = new ArrayList<>();
+    private Company company = new Company();
 
-    private List<CustomerOrder> detailedOrders = new ArrayList<>(); 
-    
-    private String searchName = new String();
-    
-    private CustomerOrder chosenCustomerOrder = new CustomerOrder();
-    
-    
+    private CompanyAdmin companyAdmin = new CompanyAdmin();
+
     @PostConstruct
     public void init() {
-        userInit();
-        companyProductImageInit();
+//        userInit();
+        itemImages = new ItemImageDao().FindAll(ItemImage.class);
     }
 
-    public void companyProductImageInit() {
-        itemImages = new ItemImageDao().FindAll(ItemImage.class);
-        deliverers = new DelivererDao().FindAll(Deliverer.class);
-        customerOrders = new CustomerOrderDao().FindAll(CustomerOrder.class);        
-    }
-    
     public void userInit() {
         loggedInUser = (UserX) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
     }
@@ -107,6 +97,32 @@ public class AdminController {
         choosenImage.add(new FileUpload().Upload(event, "C:\\Users\\nizey\\OneDrive\\Documents\\NetBeansProjects\\Market\\com.bestabc.ecommerce\\web\\uploads\\item\\"));
     }
 
+    public void registerCompany() {
+        try {
+            for (String x : choosenImage) {
+                company.setImage(x);
+            }
+            choosenImage.clear();
+            new CompanyDao().register(company);
+            companyAdmin.setCompany(company);
+            new CompanyAdminDao().register(companyAdmin);
+            user.setAccess("CompanyAdmin");
+            user.setStatus("Active");
+            user.setCompanyAdmin(companyAdmin);
+            user.setPassword(new PassCode().encrypt(password));
+            new UserDao().register(user);
+
+            user = new UserX();
+            company = new Company();
+
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Company Registered"));
+
+        } catch (Exception ex) {
+            Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public Item getItem() {
         return item;
     }
@@ -137,30 +153,6 @@ public class AdminController {
 
     public void setItemImages(List<ItemImage> itemImages) {
         this.itemImages = itemImages;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Deliverer getDeliverer() {
-        return deliverer;
-    }
-
-    public void setDeliverer(Deliverer deliverer) {
-        this.deliverer = deliverer;
-    }
-
-    public List<Deliverer> getDeliverers() {
-        return deliverers;
-    }
-
-    public void setDeliverers(List<Deliverer> deliverers) {
-        this.deliverers = deliverers;
     }
 
     public UserX getUser() {
@@ -195,38 +187,20 @@ public class AdminController {
         this.chosenItemImage = chosenItemImage;
     }
 
-    public List<CustomerOrder> getCustomerOrders() {
-        return customerOrders;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setCustomerOrders(List<CustomerOrder> customerOrders) {
-        this.customerOrders = customerOrders;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
-    public List<CustomerOrder> getDetailedOrders() {
-        return detailedOrders;
+    public CompanyAdmin getCompanyAdmin() {
+        return companyAdmin;
     }
 
-    public void setDetailedOrders(List<CustomerOrder> detailedOrders) {
-        this.detailedOrders = detailedOrders;
+    public void setCompanyAdmin(CompanyAdmin companyAdmin) {
+        this.companyAdmin = companyAdmin;
     }
-
-    public String getSearchName() {
-        return searchName;
-    }
-
-    public void setSearchName(String searchName) {
-        this.searchName = searchName;
-    }
-
-    public CustomerOrder getChosenCustomerOrder() {
-        return chosenCustomerOrder;
-    }
-
-    public void setChosenCustomerOrder(CustomerOrder chosenCustomerOrder) {
-        this.chosenCustomerOrder = chosenCustomerOrder;
-    }
-    
-    
 
 }

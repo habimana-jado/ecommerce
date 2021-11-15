@@ -25,6 +25,9 @@ public class UserX implements Serializable {
     @OneToOne
     private Deliverer deliverer;
 
+    @OneToOne
+    private CompanyAdmin companyAdmin;
+    
     public String getId() {
         return id;
     }
@@ -87,6 +90,14 @@ public class UserX implements Serializable {
 
     public void setDeliverer(Deliverer deliverer) {
         this.deliverer = deliverer;
+    }
+
+    public CompanyAdmin getCompanyAdmin() {
+        return companyAdmin;
+    }
+
+    public void setCompanyAdmin(CompanyAdmin companyAdmin) {
+        this.companyAdmin = companyAdmin;
     }
 
 }
