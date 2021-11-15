@@ -4,15 +4,11 @@ import Common.FileUpload;
 import Common.PassCode;
 import dao.CompanyAdminDao;
 import dao.CompanyDao;
-import dao.CustomerOrderDao;
-import dao.DelivererDao;
 import dao.ItemDao;
 import dao.ItemImageDao;
 import dao.UserDao;
 import domain.Company;
 import domain.CompanyAdmin;
-import domain.CustomerOrder;
-import domain.Deliverer;
 import domain.Item;
 import domain.ItemImage;
 import domain.UserX;
@@ -50,6 +46,8 @@ public class AdminController {
     private Company company = new Company();
 
     private CompanyAdmin companyAdmin = new CompanyAdmin();
+    
+    private List<Company> allCompanies = new CompanyDao().FindAll(Company.class);
 
     @PostConstruct
     public void init() {
@@ -115,6 +113,8 @@ public class AdminController {
             user = new UserX();
             company = new Company();
 
+            allCompanies = new CompanyDao().FindAll(Company.class);
+            
             FacesContext ct = FacesContext.getCurrentInstance();
             ct.addMessage(null, new FacesMessage("Company Registered"));
 
@@ -201,6 +201,14 @@ public class AdminController {
 
     public void setCompanyAdmin(CompanyAdmin companyAdmin) {
         this.companyAdmin = companyAdmin;
+    }
+
+    public List<Company> getAllCompanies() {
+        return allCompanies;
+    }
+
+    public void setAllCompanies(List<Company> allCompanies) {
+        this.allCompanies = allCompanies;
     }
 
 }

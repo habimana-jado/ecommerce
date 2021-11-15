@@ -301,7 +301,7 @@
                                                 </div>
                                             </div>
                                             <hr></hr>
-                                            <center><h4 class="text text-warning">Company Admin Details</h4></center>
+                                        <center><h4 class="text text-warning">Company Admin Details</h4></center>
                                             <div class="row" style="padding-top: 5px;">
                                                 <div class="form-group">
                                                     <div class="col-sm-3">
@@ -361,7 +361,7 @@
                             </h:form>                            
                         </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
@@ -370,20 +370,38 @@
                                     <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Company</a>
                                 </div>
                                 <div class="asset-inner">
-                                    <h:form>
-                                        guljk
-                                        <c:forEach items="#{adminController.itemImages}" var="elements" varStatus="status">
-                                            <div class="modal-dialog">
-                                                <p:growl />
-                                                <div class="modal-content">
-                                                    <div class="modal-header">Add Company</div>
-                                                    <div class="modal-body">
-                                                        <div class="row">   </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </c:forEach>
-                                    </h:form>
+                                    <table>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Company Name</th>
+                                            <th>Location</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Registration</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <h:form>
+                                            <c:forEach items="#{adminController.allCompanies}" var="elements" varStatus="status">
+                                                <tr>
+                                                    <td>${status.index+1}</td>
+                                                    <td>
+                                                        #{elements.name}
+                                                    </td>
+                                                    <td>#{elements.location}</td>
+                                                    <td>
+                                                        #{elements.email}
+                                                    </td>
+                                                    <td>#{elements.phone}</td>
+                                                    <td>#{elements.regDate}</td>
+                                                    <td>
+                                                        <h:commandButton class="btn btn-sm btn-primary" value="Employees" action="#{adminController.updateItem(elements)}" />
+                                                        <h:commandButton class="btn btn-sm btn-warning" value="Products" action="#{adminController.updateItem(elements)}" />
+                                                        <h:commandButton class="btn btn-sm btn-success" value="Orders" action="#{adminController.updateItem(elements)}" />
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </h:form>
+                                    </table>
                                 </div>
                             </div>
                         </div>
