@@ -15,6 +15,9 @@ public class ItemImage implements Serializable {
     
     @ManyToOne
     private Item item;
+    
+    @ManyToOne
+    private Travel travel;
 
     public String getId() {
         return id;
@@ -38,6 +41,14 @@ public class ItemImage implements Serializable {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public Travel getTravel() {
+        return travel;
+    }
+
+    public void setTravel(Travel travel) {
+        this.travel = travel;
     }
     
     
