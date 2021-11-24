@@ -9,7 +9,7 @@
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <title>Weekly Reporting System</title>
+        <title>The Best ABC</title>
         <meta name="description" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- favicon
@@ -89,31 +89,10 @@
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a href="institutions.xhtml" aria-expanded="false"><span class="educate-icon educate-event icon-wrap"></span> <span class="mini-click-non">Institution</span></a>
+                                <a href="products.xhtml" aria-expanded="false"><span class="educate-icon educate-event icon-wrap"></span> <span class="mini-click-non">All Products</span></a>
                             </li>
                             <li>
-                                <a href="institution-users.xhtml" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Institution User</span></a>
-                            </li>
-                            <li>
-                                <a href="global-users.xhtml" aria-expanded="false"><span class="educate-icon educate-warning icon-wrap"></span> <span class="mini-click-non">Global Users</span></a>
-                            </li>
-                            <li>
-                                <a href="divisions.xhtml" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Dpts/Dcts/Units</span></a>
-
-                            </li>
-                            <li>
-                                <a href="products.xhtml" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Dpts/Dcts/Units User</span></a>
-                            </li>
-                            <li>
-                                <a class="has-arrow" href="projects.xhtml" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Operational Plan</span></a>
-                                <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="Add/Edit Output" href="projects.xhtml"><span class="mini-sub-pro">Add/Edit Output</span></a></li>
-                                    <li><a title="Output List" href="all-activities.xhtml"><span class="mini-sub-pro">Output List</span></a></li>
-
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="report.xhtml" aria-expanded="false"><span class="educate-icon educate-form icon-wrap"></span> <span class="mini-click-non">Report</span></a>
+                                <a href="company.xhtml" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">All Companies</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -163,9 +142,9 @@
                                                         </a>
                                                         <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
 
-                                                            <li><a><h:form><h:commandButton class="btn btn-primary btn-block" value="Profile" action="#{institutionModel.navigateProfile()}"/> </h:form></a>
+                                                            <li><a><h:form><h:commandButton class="btn btn-primary btn-block" value="Profile" /> </h:form></a>
                                                             </li>
-                                                            <li><a><h:form><h:commandButton class="btn btn-danger btn-block" value="Log Out" action="#{accountModel.logout()}" /> </h:form></a>
+                                                            <li><a><h:form><h:commandButton class="btn btn-danger btn-block" value="Log Out" action="#{userController.logout()}" /> </h:form></a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -188,19 +167,12 @@
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li>
-                                                <a href="products.xhtml">Project Managers</a>
+                                                <a href="products.xhtml">All Products</a>
                                             </li>
 
                                             <li>
-                                                <a href="divisions.xhtml">Departments</a>
+                                                <a href="company.xhtml">All Companies</a>
 
-                                            </li>
-                                            <li>
-                                                <a href="projects.xhtml">Projects</a>
-
-                                            </li>
-                                            <li>
-                                                <a href="report.xhtml">Report</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -208,8 +180,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Mobile Menu end -->
+                </div>bile Menu end -->
                 <div class="breadcome-area">
                     <div class="container-fluid">
                         <div class="row">

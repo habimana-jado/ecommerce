@@ -47,15 +47,16 @@ public class UserController {
         if (user != null) {
 
             switch (user.getAccess()) {
-                case "Company":
+                case "Admin":
+                    System.out.println("Foudn1");
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("session", user);
                     ec.redirect(ec.getRequestContextPath() + "/faces/pages/admin/products.xhtml");
                     return "faces/pages/admin/products.xhtml?faces-redirect=true";
-                case "Deliverer":
+                case "SalesManager":
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("session", user);
                     ec.redirect(ec.getRequestContextPath() + "/faces/pages/deliverer/pendingorder.xhtml");
                     return "faces/pages/deliverer/pendingorder.xhtml?faces-redirect=true";
-                case "Customer":
+                case "CompanyAdmin1":
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("session", user);
                     ec.redirect(ec.getRequestContextPath() + "/faces/pages/customer/single.xhtml");
                     return "faces/pages/customer/single.xhtml?faces-redirect=true";
@@ -80,11 +81,12 @@ public class UserController {
     }
 
     public void findUser() throws Exception {
-        List<UserX> usersLogin = new UserDao().login(username, password);
+        List<UserX> usersLogin = new UserDao().loginencrypt(username, password);
 
         if (!usersLogin.isEmpty()) {
             for (UserX u : usersLogin) {
                 user = u;
+                System.out.println("Found");
             }
         } else {
             user = null;

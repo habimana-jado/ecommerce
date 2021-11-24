@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <!-- Title Tag  -->
-        <title>Best ABC</title>
+        <title>The Best ABC</title>
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="pages/images/favicon.png"/>
         <!-- Web Font -->
@@ -78,10 +78,6 @@
                         <div class="col-lg-7 col-md-12 col-12">
                             <!-- Top Right -->
                             <div class="right-content">
-                                <!--                                <ul class="list-main">
-                                                                    <li><i class="ti-user"></i> <a href="#">My account</a></li>
-                                                                    <li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
-                                                                </ul>-->
 
                                 <div class="right-bar">
                                     <!-- Search Form -->
@@ -93,55 +89,22 @@
                                                 <center>Login</center>
                                             </div>
                                             <ul class="shopping-list">
-                                                <form class="dropdown-menu p-4">
-                                                    <div class="form-group">
-                                                        <label for="exampleDropdownFormEmail2">Email address</label>
-                                                        <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com"/>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleDropdownFormPassword2">Password</label>
-                                                        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"/>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input" id="dropdownCheck2"/>
-                                                            <label class="form-check-label" for="dropdownCheck2">
-                                                                Remember me
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Sign in</button>
-                                                </form>
-
+                                                <h:form>
                                                 <li>
                                                     <div class="form-group">
-                                                        <label for="exampleDropdownFormEmail2">Email address</label>
-                                                        <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com"/>
+                                                        <label for="exampleDropdownFormEmail2">Username:</label>
+                                                        <h:inputText value="#{userController.username}" class="form-control" id="exampleDropdownFormEmail2" />
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="exampleDropdownFormPassword2">Password</label>
-                                                        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"/>
+                                                        <label for="exampleDropdownFormPassword2">Password:</label>
+                                                        <h:inputSecret value="#{userController.password}" class="form-control" id="exampleDropdownFormPassword2" />
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="exampleDropdownFormPassword2">Password</label>
-                                                        <input type="button" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"/>
+                                                        <h:commandButton action="#{userController.login()}" class="btn btn-block btn-success" value="Sign In"/>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    
-                                                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                    <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"/></a>
-                                                    <h4><a href="#">Woman Necklace</a></h4>
-                                                    <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                                </li>
+                                                </h:form>
                                             </ul>
-                                            <div class="bottom">
-                                                <div class="total">
-                                                    <span>Total</span>
-                                                    <span class="total-amount">$134.00</span>
-                                                </div>
-                                                <a href="pages/checkout.xhtml" class="btn animate">Checkout</a>
-                                            </div>
                                         </div>
                                         <!--/ End Shopping Item -->
                                     </div>
@@ -343,18 +306,6 @@
 
 
         <!-- Example single danger button -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Action
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                <li><hr class="dropdown-divider"></hr></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-        </div>
 
         <!-- Slider Area -->
         <section class="hero-slider">

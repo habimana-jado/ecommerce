@@ -98,7 +98,7 @@ public class AdminController {
     }
 
     public void Upload(FileUploadEvent event) {
-        choosenImage.add(new FileUpload().Upload(event, "C:\\Users\\nizey\\OneDrive\\Documents\\NetBeansProjects\\Market\\com.bestabc.ecommerce\\web\\uploads\\item\\"));
+        choosenImage.add(new FileUpload().Upload(event, "C:\\Users\\user\\Documents\\apache-tomcat-9.0.14\\webapps\\com.bestabc.ecommerce\\uploads\\item\\"));
     }
 
     public void registerCompany() {

@@ -12,7 +12,7 @@ public class UserDao extends GenericDao<UserX>{
     
     public List<UserX> login(String u,String password){
         Session s=HibernateUtil.getSessionFactory().openSession();
-        Query q=s.createQuery("select a from User a where a.username=:v and a.password=:p");
+        Query q=s.createQuery("select a from UserX a where a.username=:v and a.password=:p");
         q.setParameter("v", u);
         q.setParameter("p", password);
         List<UserX> l=q.list();
