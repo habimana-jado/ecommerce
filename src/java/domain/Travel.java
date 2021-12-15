@@ -4,6 +4,8 @@ package domain;
 import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
 /**
@@ -36,6 +38,8 @@ public class Travel implements Serializable {
     private Boolean insurance;
     private String insuranceDetails;
     private String additionalServices;
+    @Enumerated(EnumType.STRING)
+    private EStatus status;
 
     public String getTravelId() {
         return travelId;
@@ -219,6 +223,14 @@ public class Travel implements Serializable {
 
     public void setAdditionalServices(String additionalServices) {
         this.additionalServices = additionalServices;
+    }
+
+    public EStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EStatus status) {
+        this.status = status;
     }
     
     

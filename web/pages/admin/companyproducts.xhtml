@@ -212,7 +212,7 @@
                 <div class="container-fluid">
                     <div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                         <div class="modal-dialog">
-                            <h:form id="userForm">
+                            <h:form id="productForm">
                                 <p:growl />
                                 <div class="modal-content">
                                     <div class="modal-close-area modal-close-df">
@@ -280,7 +280,7 @@
                                                         <label class="col-form-label">Description: </label>  
                                                     </div>
                                                     <div class="col-sm-9"> 
-                                                        <h:inputTextarea rows="4" class="form-control" id="desc" value="#{adminController.item.description}" required="true" requiredMessage="Description is required"/>
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.item.description}" required="true" requiredMessage="Description is required"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -291,7 +291,7 @@
                                                     </div>
                                                     <div class="col-sm-9"> 
                                                         <p:fileUpload  id="fileUpload"   fileUploadListener="#{adminController.Upload}" mode="advanced" dragDropSupport="false"
-                                                   sizeLimit="1000000000000" fileLimit="5" invalidFileMessage="Invalid Image Type"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                                                       sizeLimit="1000000000000" fileLimit="5" invalidFileMessage="Invalid Image Type"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -335,12 +335,254 @@
                             </h:form>                            
                         </div>
                     </div>
-                    
+
+                    <div id="PrimaryModalalert1" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <h:form id="travelForm">
+                                <p:growl />
+                                <div class="modal-content">
+                                    <div class="modal-close-area modal-close-df">
+                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                    </div>
+                                    <div class="modal-header">Add Travel - Tour Details</div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Travel Name: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.travelName}"  required="true" requiredMessage="Name is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Travel Description: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputTextarea rows="5" class="form-control" value="#{adminController.travel.travelDescription}"  required="true" requiredMessage="Description is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Tour Operator: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.tourOperator}"  required="true" requiredMessage="Operator is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Amount: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.amount}"  required="true" requiredMessage="Amount is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Location: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.location}"  required="true" requiredMessage="Location is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Group Size(Max): </label> 
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.maxGroupSize}"  required="true" requiredMessage="Group Size is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Age Range: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.travel.ageRange}"  required="true" requiredMessage="Age Range is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.accomodation}" class="chk-col-light-blue" itemLabel="Accomodation"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Accomodation Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.accomodationDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div><div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.guide}" class="chk-col-light-blue" itemLabel="Guiding"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Guiding Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.guideDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.meals}" class="chk-col-light-blue" itemLabel="Meals"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Meals Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.mealsDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.snacks}" class="chk-col-light-blue" itemLabel="Snacks"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Snacks Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.snacksDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.photoshoot}" class="chk-col-light-blue" itemLabel="Photoshoot"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Photoshoot Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.photoshootDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.transport}" class="chk-col-light-blue" itemLabel="Transport"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Transport Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.transportDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <!--<label class="col-form-label">Accom: </label>-->  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:selectBooleanCheckbox value="#{adminController.travel.insurance}" class="chk-col-light-blue" itemLabel="Insurance"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Insurance Details: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.insuranceDetails}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Additional Services: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.travel.additionalServices}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <h:commandButton class="btn btn-primary" value="Register" action="#{adminController.registerTravel()}" />
+                                    </div>
+                                </div>
+                            </h:form>                            
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>User List</h4>
                                 <div class="add-product">
+                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert1">Add Travel Tours</a>
                                     <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Product</a>
                                 </div>
                                 <div class="asset-inner">
@@ -379,6 +621,56 @@
                                                     </td>
                                                     <td><img alt="Product Img" src="../../uploads/item/#{elements.image}" style="width: 80px; height: 80px;"></img></td>
                                                     <td>#{elements.item.type}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </h:form>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-status-wrap">
+                                <h4>Tours List</h4>
+                                <div class="add-product">
+                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert1">Add Travel Tours</a>
+                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Product</a>
+                                </div>
+                                <div class="asset-inner">
+                                    <table>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tour Name</th>
+                                            <th>Tour Operator</th>
+                                            <th>Amount</th>
+                                            <th>Destinations</th>
+                                            <th>Group Size</th>
+                                            <th>Accommodation</th>
+                                            <th>Meals</th>
+                                            <th>Snacks</th>
+                                            <th>Transport</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <h:form>
+                                            <c:forEach items="#{adminController.travels}" var="elements" varStatus="status">
+                                                <tr>
+                                                    <td>${status.index+1}</td>
+                                                    <td>
+                                                        #{elements.travelName}
+                                                    </td>
+                                                    <td>#{elements.tourOperator}</td>
+                                                    <td>#{elements.amount}</td>
+                                                    <td>#{elements.location}</td>
+                                                    <td>#{elements.maxGroupSize}</td>
+                                                    <td>#{elements.accomodation}</td>
+                                                    <td>#{elements.meals}</td>
+                                                    <td>#{elements.snacks}</td>
+                                                    <td>#{elements.transport}</td>
+                                                    <td>
+                                                        <h:commandButton class="btn btn-sm btn-primary" value="Edit" />
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </h:form>
