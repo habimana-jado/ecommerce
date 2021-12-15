@@ -6,11 +6,13 @@ import dao.CompanyAdminDao;
 import dao.CompanyDao;
 import dao.ItemDao;
 import dao.ItemImageDao;
+import dao.TravelDao;
 import dao.UserDao;
 import domain.Company;
 import domain.CompanyAdmin;
 import domain.Item;
 import domain.ItemImage;
+import domain.Travel;
 import domain.UserX;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +57,10 @@ public class AdminController {
 
     private List<CompanyAdmin> companyAdmins = new ArrayList<>();
 
+    private Travel travel = new Travel();
+
+    private List<Travel> travels = new ArrayList<>();
+
     @PostConstruct
     public void init() {
 //        userInit();
@@ -63,6 +69,14 @@ public class AdminController {
 
     public void userInit() {
         loggedInUser = (UserX) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("session"); //hano nuku getting the username
+    }
+
+    public void registerTravel() {
+        new TravelDao().register(travel);
+        travels = new TravelDao().FindAll(Travel.class);
+        
+        FacesContext ct = FacesContext.getCurrentInstance();
+        ct.addMessage(null, new FacesMessage("Travel Details Registered"));
     }
 
     public void registerItem() {
@@ -261,6 +275,22 @@ public class AdminController {
 
     public void setCompanyAdmins(List<CompanyAdmin> companyAdmins) {
         this.companyAdmins = companyAdmins;
+    }
+
+    public Travel getTravel() {
+        return travel;
+    }
+
+    public void setTravel(Travel travel) {
+        this.travel = travel;
+    }
+
+    public List<Travel> getTravels() {
+        return travels;
+    }
+
+    public void setTravels(List<Travel> travels) {
+        this.travels = travels;
     }
 
 }
