@@ -55,7 +55,7 @@ public class AdminController {
     private Company chosenCompany = new Company();
 
     private List<ItemImage> companyItemImages = new ArrayList<>();
-    
+
     private List<ItemImage> companyTravelImages = new ArrayList<>();
 
     private List<CompanyAdmin> companyAdmins = new ArrayList<>();
@@ -103,6 +103,32 @@ public class AdminController {
             FacesContext ct = FacesContext.getCurrentInstance();
             ct.addMessage(null, new FacesMessage("Upload Product Images"));
         } else {
+            item.setCompany(chosenCompany);
+            new ItemDao().register(item);
+            for (String x : choosenImage) {
+                ItemImage itemImage = new ItemImage();
+                itemImage.setImage(x);
+                itemImage.setItem(item);
+                new ItemImageDao().register(itemImage);
+            }
+            choosenImage.clear();
+            itemImages = new ItemImageDao().FindAll(ItemImage.class);
+            companyItemImages = new ItemImageDao().findByCompany(chosenCompany);
+            items = new ItemDao().FindAll(Item.class);
+
+            item = new Item();
+
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Product Registered"));
+        }
+    }
+
+    public void registerKnowledgeBasedItem() {
+        if (choosenImage.isEmpty()) {
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Upload Product Images"));
+        } else {
+            item.setCategory("KnowledgeBased");
             item.setCompany(chosenCompany);
             new ItemDao().register(item);
             for (String x : choosenImage) {
