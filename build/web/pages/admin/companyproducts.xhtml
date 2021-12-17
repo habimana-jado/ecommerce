@@ -335,7 +335,7 @@
                             </h:form>                            
                         </div>
                     </div>
-                    
+
 
                     <div id="PrimaryModalalert1" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                         <div class="modal-dialog">
@@ -588,7 +588,7 @@
                             </h:form>                            
                         </div>
                     </div>
-                    
+
                     <div id="PrimaryModalalert2" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                         <div class="modal-dialog">
                             <h:form id="knowledgeProductForm">
@@ -674,12 +674,117 @@
                         </div>
                     </div>
 
+                    <div id="PrimaryModalalert3" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <h:form id="bookProductForm">
+                                <p:growl />
+                                <div class="modal-content">
+                                    <div class="modal-close-area modal-close-df">
+                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                    </div>
+                                    <div class="modal-header">Add Product</div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Book Name: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.item.name}"  required="true" requiredMessage="Name is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Book Author: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.item.author}"  required="true" requiredMessage="Author is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Publisher: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.item.publisher}"  required="true" requiredMessage="Publisher is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Publish Date: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.item.publishDate}"  required="true" requiredMessage="Date is required">
+                                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                        </h:inputText>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Unit Price: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <h:inputText class="form-control" value="#{adminController.item.unitPrice}"  required="true" requiredMessage="Unit Price is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Quantity: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputText class="form-control" value="#{adminController.item.quantity}"  required="true" requiredMessage="Quantity is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Description: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <h:inputTextarea rows="4" class="form-control" value="#{adminController.item.description}" required="true" requiredMessage="Description is required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label class="col-form-label">Pictures: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:fileUpload  id="fileUpload"   fileUploadListener="#{adminController.Upload}" mode="advanced" dragDropSupport="false"
+                                                                       sizeLimit="1000000000000" fileLimit="5" invalidFileMessage="Invalid Image Type"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <h:commandButton class="btn btn-primary" value="Register" action="#{adminController.registerBookItem()}" />
+                                    </div>
+                                </div>
+                            </h:form>                            
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>User List</h4>
                                 <div class="add-product">
-                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert2">Add Knowledge Product</a>
+                                    <a style="padding-right: 500px;" class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert3">Add Book</a>
+                                    <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert2">Add Software</a>
                                     <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert1">Add Travel Tours</a>
                                     <a class="pd-setting" data-toggle="modal" href="#" data-target="#PrimaryModalalert">Add Product</a>
                                 </div>

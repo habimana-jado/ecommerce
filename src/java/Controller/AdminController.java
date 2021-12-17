@@ -149,6 +149,33 @@ public class AdminController {
         }
     }
 
+    public void registerBookItem() {
+        if (choosenImage.isEmpty()) {
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Upload Product Images"));
+        } else {
+            item.setCategory("KnowledgeBased");
+            item.setType("Book");
+            item.setCompany(chosenCompany);
+            new ItemDao().register(item);
+            for (String x : choosenImage) {
+                ItemImage itemImage = new ItemImage();
+                itemImage.setImage(x);
+                itemImage.setItem(item);
+                new ItemImageDao().register(itemImage);
+            }
+            choosenImage.clear();
+            itemImages = new ItemImageDao().FindAll(ItemImage.class);
+            companyItemImages = new ItemImageDao().findByCompany(chosenCompany);
+            items = new ItemDao().FindAll(Item.class);
+
+            item = new Item();
+
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Product Registered"));
+        }
+    }
+
     public void updateItem(ItemImage im) {
         new ItemDao().Update(im.getItem());
 
