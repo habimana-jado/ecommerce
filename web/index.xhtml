@@ -90,19 +90,19 @@
                                             </div>
                                             <ul class="shopping-list">
                                                 <h:form>
-                                                <li>
-                                                    <div class="form-group">
-                                                        <label for="exampleDropdownFormEmail2">Username:</label>
-                                                        <h:inputText value="#{userController.username}" class="form-control" id="exampleDropdownFormEmail2" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleDropdownFormPassword2">Password:</label>
-                                                        <h:inputSecret value="#{userController.password}" class="form-control" id="exampleDropdownFormPassword2" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <h:commandButton action="#{userController.login()}" class="btn btn-block btn-success" value="Sign In"/>
-                                                    </div>
-                                                </li>
+                                                    <li>
+                                                        <div class="form-group">
+                                                            <label for="exampleDropdownFormEmail2">Username:</label>
+                                                            <h:inputText value="#{userController.username}" class="form-control" id="exampleDropdownFormEmail2" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleDropdownFormPassword2">Password:</label>
+                                                            <h:inputSecret value="#{userController.password}" class="form-control" id="exampleDropdownFormPassword2" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h:commandButton action="#{userController.login()}" class="btn btn-block btn-success" value="Sign In"/>
+                                                        </div>
+                                                    </li>
                                                 </h:form>
                                             </ul>
                                         </div>
@@ -769,25 +769,27 @@
                             </div>
                         </div>
                         <!-- Start Single List  -->
-                        <div class="single-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        <img src="https://via.placeholder.com/115x140" alt="#"/>
-                                        <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                        <c:forEach items="#{itemController.travels}" var="travel"> 
+                            <div class="single-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="list-image overlay">
+                                            <img src="uploads/item/#{travel.image}" alt="#"/>
+                                            <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12 no-padding">
-                                    <div class="content">
-                                        <h4 class="title"><a href="#">Licity jelly leg flat Sandals</a></h4>
-                                        <p class="price with-discount">$59</p>
+                                    <div class="col-lg-6 col-md-6 col-12 no-padding">
+                                        <div class="content">
+                                            <h4 class="title"><a href="#">#{travel.travel.travelName}: #{travel.travel.location}</a></h4>
+                                            <p class="price with-discount">#{travel.travel.amount}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </c:forEach>
                         <!-- End Single List  -->
                         <!-- Start Single List  -->
-                        <div class="single-list">
+<!--                        <div class="single-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="list-image overlay">
@@ -798,14 +800,14 @@
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
                                         <h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
-                                        <p class="price with-discount">$44</p>
+                                        <p class="price with-discount">$4400</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- End Single List  -->
                         <!-- Start Single List  -->
-                        <div class="single-list">
+<!--                        <div class="single-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="list-image overlay">
@@ -820,7 +822,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- End Single List  -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">

@@ -420,6 +420,17 @@
                                             <div class="row" style="padding-top: 5px;">
                                                 <div class="form-group">
                                                     <div class="col-sm-3">
+                                                        <label class="col-form-label">Pictures: </label>  
+                                                    </div>
+                                                    <div class="col-sm-9"> 
+                                                        <p:fileUpload  id="fileUpload"   fileUploadListener="#{adminController.Upload}" mode="advanced" dragDropSupport="false"
+                                                                       sizeLimit="1000000000000" fileLimit="5" invalidFileMessage="Invalid Image Type"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 5px;">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
                                                         <!--<label class="col-form-label">Accom: </label>-->  
                                                     </div>
                                                     <div class="col-sm-9"> 
@@ -654,20 +665,20 @@
                                             <th>Action</th>
                                         </tr>
                                         <h:form>
-                                            <c:forEach items="#{adminController.travels}" var="elements" varStatus="status">
+                                            <c:forEach items="#{adminController.companyTravelImages}" var="elements" varStatus="status">
                                                 <tr>
                                                     <td>${status.index+1}</td>
                                                     <td>
-                                                        #{elements.travelName}
+                                                        #{elements.travel.travelName}
                                                     </td>
-                                                    <td>#{elements.tourOperator}</td>
-                                                    <td>#{elements.amount}</td>
-                                                    <td>#{elements.location}</td>
-                                                    <td>#{elements.maxGroupSize}</td>
-                                                    <td>#{elements.accomodation}</td>
-                                                    <td>#{elements.meals}</td>
-                                                    <td>#{elements.snacks}</td>
-                                                    <td>#{elements.transport}</td>
+                                                    <td>#{elements.travel.tourOperator}</td>
+                                                    <td>#{elements.travel.amount}</td>
+                                                    <td>#{elements.travel.location}</td>
+                                                    <td>#{elements.travel.maxGroupSize}</td>
+                                                    <td>#{elements.travel.accomodation}</td>
+                                                    <td>#{elements.travel.meals}</td>
+                                                    <td>#{elements.travel.snacks}</td>
+                                                    <td>#{elements.travel.transport}</td>
                                                     <td>
                                                         <h:commandButton class="btn btn-sm btn-primary" value="Edit" />
                                                     </td>

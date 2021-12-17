@@ -1,6 +1,10 @@
 
 package Common;
 
+import Controller.ItemController;
+import domain.ItemImage;
+import domain.Travel;
+
 
 public class Cleaning {
 
@@ -13,6 +17,10 @@ public class Cleaning {
         
 //        Company c = new CompanyDao().FindOne(Company.class, "279872da-73b2-4b81-81ec-dff6a36c1b5b");
 //        new CompanyDao().Delete(c);
+
+        for(ItemImage t: new ItemController().getTravels()){
+            System.out.println(t.getTravel().getTravelName());
+        }
     }
     
 }

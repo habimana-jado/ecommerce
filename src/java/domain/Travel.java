@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -40,6 +41,9 @@ public class Travel implements Serializable {
     private String additionalServices;
     @Enumerated(EnumType.STRING)
     private EStatus status;
+    
+    @ManyToOne
+    private Company company;
 
     public String getTravelId() {
         return travelId;
@@ -231,6 +235,14 @@ public class Travel implements Serializable {
 
     public void setStatus(EStatus status) {
         this.status = status;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
     
     

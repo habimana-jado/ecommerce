@@ -10,6 +10,7 @@ import dao.TravelDao;
 import dao.UserDao;
 import domain.Company;
 import domain.CompanyAdmin;
+import domain.EStatus;
 import domain.Item;
 import domain.ItemImage;
 import domain.Travel;
@@ -54,6 +55,8 @@ public class AdminController {
     private Company chosenCompany = new Company();
 
     private List<ItemImage> companyItemImages = new ArrayList<>();
+    
+    private List<ItemImage> companyTravelImages = new ArrayList<>();
 
     private List<CompanyAdmin> companyAdmins = new ArrayList<>();
 
@@ -72,11 +75,27 @@ public class AdminController {
     }
 
     public void registerTravel() {
-        new TravelDao().register(travel);
-        travels = new TravelDao().FindAll(Travel.class);
-        
-        FacesContext ct = FacesContext.getCurrentInstance();
-        ct.addMessage(null, new FacesMessage("Travel Details Registered"));
+        if (choosenImage.isEmpty()) {
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Upload Product Images"));
+        } else {
+            travel.setCompany(chosenCompany);
+            travel.setStatus(EStatus.ACTIVE);
+            new TravelDao().register(travel);
+            for (String x : choosenImage) {
+                ItemImage itemImage = new ItemImage();
+                itemImage.setImage(x);
+                itemImage.setTravel(travel);
+                new ItemImageDao().register(itemImage);
+            }
+            choosenImage.clear();
+            companyTravelImages = new ItemImageDao().findToursByCompany(chosenCompany);
+//            travels = new TravelDao().FindAll(Travel.class);
+            travel = new Travel();
+
+            FacesContext ct = FacesContext.getCurrentInstance();
+            ct.addMessage(null, new FacesMessage("Travel Details Registered"));
+        }
     }
 
     public void registerItem() {
@@ -291,6 +310,14 @@ public class AdminController {
 
     public void setTravels(List<Travel> travels) {
         this.travels = travels;
+    }
+
+    public List<ItemImage> getCompanyTravelImages() {
+        return companyTravelImages;
+    }
+
+    public void setCompanyTravelImages(List<ItemImage> companyTravelImages) {
+        this.companyTravelImages = companyTravelImages;
     }
 
 }

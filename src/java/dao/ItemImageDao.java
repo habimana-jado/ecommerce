@@ -2,6 +2,7 @@
 package dao;
 
 import domain.Company;
+import domain.EStatus;
 import domain.Item;
 import domain.ItemImage;
 import java.util.List;
@@ -27,6 +28,15 @@ public class ItemImageDao extends GenericDao<ItemImage>{
         return list;
      }
     
+    public List<ItemImage> findToursByCompany(Company iq){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query q = s.createQuery("select a from ItemImage a where a.item.company = :v AND a.travel IS NOT NULL");
+        q.setParameter("v", iq);
+        List<ItemImage> list = q.list();
+        s.close();
+        return list;
+     }
+    
     public List<ItemImage> findByItemType(String iq){
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query q = s.createQuery("select a from ItemImage a where a.item.type = :v and a.item.quantity != :d");
@@ -46,4 +56,14 @@ public class ItemImageDao extends GenericDao<ItemImage>{
         s.close();
         return list;
      }
+    
+    public List<ItemImage> findAvailableTours(EStatus status){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Query q = s.createQuery("select a from ItemImage a where a.travel.status = :status ");
+        q.setParameter("status", status);
+        List<ItemImage> list = q.list();
+        s.close();
+        return list;
+     }
+    
 }

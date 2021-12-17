@@ -2,6 +2,7 @@
 package Controller;
 
 import dao.ItemImageDao;
+import domain.EStatus;
 import domain.ItemImage;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -18,6 +19,7 @@ public class ItemController {
     private List<ItemImage> electronics = new ItemImageDao().findByItemType("Electronics");
     private List<ItemImage> clothes = new ItemImageDao().findByItemType("Clothes");
     private List<ItemImage> hotels = new ItemImageDao().findByItemType("Hotel");
+    private List<ItemImage> travels = new ItemImageDao().findAvailableTours(EStatus.ACTIVE);
 
     public List<ItemImage> getAllItems() {
         return allItems;
@@ -73,6 +75,14 @@ public class ItemController {
 
     public void setHotels(List<ItemImage> hotels) {
         this.hotels = hotels;
+    }
+
+    public List<ItemImage> getTravels() {
+        return travels;
+    }
+
+    public void setTravels(List<ItemImage> travels) {
+        this.travels = travels;
     }
     
     
