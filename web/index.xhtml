@@ -764,7 +764,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="shop-section-title">
-                                    <h1>On sale</h1>
+                                    <h1>Tours</h1>
                                 </div>
                             </div>
                         </div>
@@ -788,71 +788,38 @@
                             </div>
                         </c:forEach>
                         <!-- End Single List  -->
-                        <!-- Start Single List  -->
-<!--                        <div class="single-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        <img src="https://via.placeholder.com/115x140" alt="#"/>
-                                        <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12 no-padding">
-                                    <div class="content">
-                                        <h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
-                                        <p class="price with-discount">$4400</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- End Single List  -->
-                        <!-- Start Single List  -->
-<!--                        <div class="single-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        <img src="https://via.placeholder.com/115x140" alt="#"/>
-                                        <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12 no-padding">
-                                    <div class="content">
-                                        <h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
-                                        <p class="price with-discount">$89</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- End Single List  -->
+
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="row">
                             <div class="col-12">
                                 <div class="shop-section-title">
-                                    <h1>Best Seller</h1>
+                                    <h1>Softwares</h1>
                                 </div>
                             </div>
                         </div>
                         <!-- Start Single List  -->
-                        <div class="single-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        <img src="https://via.placeholder.com/115x140" alt="#"/>
-                                        <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                        <c:forEach items="#{itemController.softwares}" var="soft"> 
+                            <div class="single-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="list-image overlay">
+                                            <img src="uploads/item/#{soft.image}" alt="#"/>
+                                            <a href="#" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12 no-padding">
-                                    <div class="content">
-                                        <h5 class="title"><a href="#">Licity jelly leg flat Sandals</a></h5>
-                                        <p class="price with-discount">$65</p>
+                                    <div class="col-lg-6 col-md-6 col-12 no-padding">
+                                        <div class="content">
+                                            <h5 class="title"><a href="#">#{soft.item.name}</a></h5>
+                                            <p class="price with-discount">#{soft.item.unitPrice}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </c:forEach>
                         <!-- End Single List  -->
                         <!-- Start Single List  -->
-                        <div class="single-list">
+<!--                        <div class="single-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="list-image overlay">
@@ -867,10 +834,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- End Single List  -->
                         <!-- Start Single List  -->
-                        <div class="single-list">
+<!--                        <div class="single-list">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="list-image overlay">
@@ -885,7 +852,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- End Single List  -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
